@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .App {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .App {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,21 @@
+/* src/components/CommandButtons.css */
+
+.command-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.command-button {
+  padding: 15px;
+  font-size: 16px;
+  border: 2px solid #333;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.command-button:hover {
+  background-color: #e0e0e0;
+}
