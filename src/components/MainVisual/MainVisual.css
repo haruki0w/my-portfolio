@@ -2,215 +2,372 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #f0f0f0;
+  background-color: #e7f0c0;
+  image-rendering: pixelated;
 }
 
 /* 上部バトルエリア */
 .battle-area {
   flex: 1;
   position: relative;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 4px solid #333;
-  background-color: #f0f0f0;
+  /* padding: 10px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  border-bottom: 4px solid #000000;
+  background-color: #e7f0c0;
+  grid-template-areas: 
+    "enemy-hp enemy-character"
+    "player-character player-hp";
+  margin: 0 auto; /* 中央寄せ */
+}
+
+/* PCサイズ以上での固定幅設定 */
+@media (min-width: 769px) {
+  .battle-area {
+    width: 768px;
+    max-width: 768px;
+    flex: none; /* flexの自動伸縮を無効 */
+  }
+
+  .command-area {
+    width: 768px;
+    max-width: 768px;
+    margin: 0 auto; /* 中央寄せ */
+  }
 }
 
 .battle-background {
+  display: none; /* 一時的に非表示 */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, #e8f5e8 0%, #d0e8d0 100%);
+  background-color: #d4e19f;
   z-index: 0;
+  /* ドット絵風の背景パターン */
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      #e7f0c0 2px,
+      #e7f0c0 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      #e7f0c0 2px,
+      #e7f0c0 4px
+    );
 }
 
-/* プレイヤー側 */
-.player-side {
-  position: absolute;
-  left: 10%;
-  top: 20%;
-  z-index: 1;
-  text-align: center;
+/* プレイヤーキャラクターエリア（左下） */
+.player-character-area {
+  grid-area: player-character;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px dashed #000000;
+  margin: 10px;
+}
+
+/* プレイヤーHP情報エリア（右下） */
+.player-hp-area {
+  grid-area: player-hp;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  margin: 10px;
 }
 
 .character-box {
   width: 120px;
   height: 120px;
-  border: 3px solid #333;
-  border-radius: 8px;
+  border: 4px solid #000000;
+  border-radius: 0; /* ドット絵風に角を直角に */
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  box-shadow: 4px 4px 0px #222;
+  box-shadow: none; /* ドット絵風にシャドウを除去 */
+  image-rendering: pixelated;
 }
 
 .player-character {
-  background-color: #4a90e2;
+  background-color: #ffffff;
 }
 
 .enemy-character {
-  background-color: #e74c3c;
+  background-color: #ffffff;
 }
 
-.character-emoji {
-  font-size: 48px;
+/* ドット絵風キャラクター */
+.pixel-character {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  image-rendering: pixelated;
+}
+
+/* プレイヤーキャラクター（ドット絵風の人）*/
+.player-sprite .pixel-head {
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  width: 16px;
+  height: 16px;
+  background-color: #ff6600; /* オレンジ色（ヒトカゲ風） */
+  border-radius: 0;
+}
+
+.player-sprite .pixel-body {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  width: 24px;
+  height: 20px;
+  background-color: #ff6600; /* オレンジ色（ヒトカゲ風） */
+}
+
+.player-sprite .pixel-arms {
+  position: absolute;
+  top: 28px;
+  left: 12px;
+  width: 40px;
+  height: 8px;
+  background-color: #ff6600; /* オレンジ色（ヒトカゲ風） */
+}
+
+.player-sprite .pixel-legs {
+  position: absolute;
+  top: 44px;
+  left: 20px;
+  width: 24px;
+  height: 16px;
+  background-color: #ff6600; /* オレンジ色（ヒトカゲ風） */
+}
+
+/* エネミーキャラクター（ドット絵風のプロジェクトボックス）*/
+.enemy-sprite .enemy-main {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: #6699ff; /* 青色（ゼニガメ風） */
+  border: 2px solid #000000;
+}
+
+.enemy-sprite .enemy-detail1 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 8px;
+  height: 8px;
+  background-color: #3366cc; /* 濃い青 */
+}
+
+.enemy-sprite .enemy-detail2 {
+  position: absolute;
+  top: 20px;
+  left: 32px;
+  width: 8px;
+  height: 8px;
+  background-color: #3366cc; /* 濃い青 */
+}
+
+.enemy-sprite .enemy-detail3 {
+  position: absolute;
+  top: 32px;
+  left: 20px;
+  width: 24px;
+  height: 8px;
+  background-color: #3366cc; /* 濃い青 */
 }
 
 .character-name {
   font-weight: bold;
-  color: #333;
+  color: #000000;
   margin-bottom: 5px;
+  font-size: 14px;
+  text-shadow: none; /* ドット絵風のテキストシャドウ */
 }
 
 .hp-bar {
   width: 120px;
-  height: 12px;
-  background-color: #ddd;
-  border: 2px solid #333;
+  height: 16px;
+  background-color: #ffffff;
+  border: 3px solid #000000;
   margin-top: 5px;
   overflow: hidden;
+  border-radius: 0;
 }
 
 .hp-fill {
   height: 100%;
-  transition: width 0.3s ease;
+  transition: none; /* ドット絵風に滑らかなアニメーションを無効 */
+  image-rendering: pixelated;
 }
 
 .player-hp {
-  background-color: #4CAF50;
+  background-color: #ffcc00; /* ポケモン風の黄色 */
 }
 
 .enemy-hp {
-  background-color: #FF9800;
+  background-color: #ffcc00; /* ポケモン風の黄色 */
 }
 
 .hp-text {
   font-size: 12px;
-  color: #666;
+  color: #000000;
   margin-top: 2px;
+  font-weight: bold;
+  text-shadow: none;
 }
 
-/* 敵側 */
-.enemy-side {
-  position: absolute;
-  right: 10%;
-  top: 20%;
-  z-index: 1;
-  text-align: center;
+/* 敵キャラクターエリア（右上） */
+.enemy-character-area {
+  grid-area: enemy-character;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 2px dashed #000000;
+  margin: 10px;
+}
+
+/* 敵HP情報エリア（左上） */
+.enemy-hp-area {
+  grid-area: enemy-hp;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  margin: 10px;
 }
 
 /* メッセージエリア */
 .message-area {
   position: absolute;
-  bottom: 20%;
+  bottom: 30%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 3px solid #333;
-  border-radius: 8px;
-  padding: 15px 30px;
-  box-shadow: 4px 4px 0px #222;
-  z-index: 1;
+  width: 60%;
+  background-color: #ffffff;
+  border: 4px solid #000000;
+  border-radius: 0;
+  padding: 15px 20px;
+  box-shadow: none;
+  z-index: 10;
+  image-rendering: pixelated;
 }
 
 .message-text {
   font-weight: bold;
-  color: #333;
-  font-size: 18px;
-  text-align: center;
+  color: #000000;
+  font-size: 16px;
+  text-align: left;
+  text-shadow: none;
 }
 
 /* 下部コマンドエリア */
 .command-area {
-  background-color: #c0c0c0;
+  background-color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   min-height: 200px;
-  border-top: 4px solid #333;
+  border-top: 4px solid #000000;
+  image-rendering: pixelated;
 }
 
 .command-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   width: 100%;
-  max-width: 400px;
+  max-width: 200px;
+  margin-left: auto;
 }
 
 .command-btn {
-  padding: 15px 20px;
-  border: 3px solid #333;
-  border-radius: 8px;
-  background-color: #f8f8f8;
-  color: #333;
+  padding: 16px 20px;
+  border: 3px solid #000000;
+  border-radius: 0;
+  background-color: #ffffff;
+  color: #000000;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
-  box-shadow: 4px 4px 0px #222;
-  transition: all 0.1s ease;
+  box-shadow: none;
+  transition: none;
   text-align: center;
+  font-family: 'DotGothic16', 'Courier New', monospace;
+  text-shadow: none;
+  image-rendering: pixelated;
+  /* ポケモン風のシンプルなボタン */
+  border-style: solid;
 }
 
 .command-btn:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px #222;
+  background-color: #f0f0f0;
+  border-color: #000000;
 }
 
 .command-btn:active {
-  transform: translate(4px, 4px);
-  box-shadow: 0px 0px 0px #222;
+  background-color: #e0e0e0;
+  color: #000000;
 }
 
 .attack-btn {
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #ffffff;
 }
 
 .bag-btn {
-  background-color: #4ecdc4;
-  color: white;
+  background-color: #ffffff;
 }
 
 .pokemon-btn {
-  background-color: #45b7d1;
-  color: white;
+  background-color: #ffffff;
 }
 
 .run-btn {
-  background-color: #96ceb4;
-  color: white;
+  background-color: #ffffff;
 }
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
-  .player-side,
-  .enemy-side {
-    position: relative;
-    left: auto;
-    right: auto;
-    top: auto;
-    margin: 10px;
-  }
-  
   .battle-area {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 10px;
+    grid-template-areas: 
+      "enemy-hp"
+      "enemy-character"
+      "player-character"
+      "player-hp";
   }
   
   .character-box {
     width: 80px;
     height: 80px;
-  }
-  
-  .character-emoji {
-    font-size: 32px;
   }
   
   .hp-bar {
@@ -222,11 +379,14 @@
     bottom: auto;
     left: auto;
     transform: none;
-    margin: 20px 0;
+    width: 90%;
+    margin: 20px auto;
   }
   
   .command-buttons {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 10px;
+    max-width: 100%;
+    margin-left: 0;
   }
 } 

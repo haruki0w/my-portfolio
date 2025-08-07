@@ -1,9 +1,12 @@
 .header {
-  background-color: #2c3e50;
-  color: white;
+  background-color: #e7f0c0;
+  color: #000000;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
   position: relative;
+  border-bottom: 4px solid #000000;
+  font-family: 'DotGothic16', 'Courier New', monospace;
+  image-rendering: pixelated;
 }
 
 .header-content {
@@ -14,8 +17,9 @@
 
 .header-title {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
+  text-shadow: none;
 }
 
 .burger-menu {
@@ -30,10 +34,11 @@
 
 .burger-line {
   width: 25px;
-  height: 3px;
-  background-color: white;
+  height: 4px;
+  background-color: #000000;
   margin: 3px 0;
-  transition: 0.3s;
+  transition: none;
+  border: 1px solid #000000;
 }
 
 .burger-line.open:nth-child(1) {
@@ -66,14 +71,20 @@
 }
 
 .nav-list a {
-  color: white;
+  color: #000000;
   text-decoration: none;
-  font-size: 1.1rem;
-  transition: color 0.3s;
+  font-size: 14px;
+  transition: none;
+  font-weight: bold;
+  text-shadow: none;
+  padding: 4px 8px;
+  border: 2px solid transparent;
 }
 
 .nav-list a:hover {
-  color: #3498db;
+  color: #000000;
+  border: 2px solid #000000;
+  background-color: #ffffff;
 }
 
 /* モバイル対応 */
