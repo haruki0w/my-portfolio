@@ -22,7 +22,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
         <div className="battle-background" />
 
         {/* 敵HP情報（左上） */}
-        <div className="enemy-hp-area">
+        <div className="enemy-hp-area"></div>
           <div className="character-name">PROJECT L15</div>
           <div className="hp-bar">
             <div className="hp-fill enemy-hp" style={{ width: "60%" }} />
