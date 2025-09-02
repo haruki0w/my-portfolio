@@ -10,11 +10,9 @@
 .battle-area {
   flex: 1;
   position: relative;
-  /* padding: 10px; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 5px;
   border-bottom: 4px solid #000000;
   background-color: #e7f0c0;
   grid-template-areas: 
@@ -72,10 +70,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 2px dashed #000000;
-  margin: 10px;
+  background-color: #ffffff;
 }
 
 /* プレイヤーHP情報エリア（右下） */
@@ -87,25 +82,22 @@
   justify-content: flex-end;
   padding: 20px;
   background-color: #ffffff;
-  border: 3px solid #000000;
-  margin: 10px;
 }
 
 .character-box {
-  width: 120px;
-  height: 120px;
-  border: 4px solid #000000;
-  border-radius: 0; /* ドット絵風に角を直角に */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  box-shadow: none; /* ドット絵風にシャドウを除去 */
-  image-rendering: pixelated;
+  width: 220px;
+  height: 220px;
 }
 
 .player-character {
   background-color: #ffffff;
+}
+
+/* キャラクター写真のスタイリング */
+.character-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .enemy-character {
@@ -243,10 +235,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 2px dashed #000000;
-  margin: 10px;
+  background-color: #ffffff;
 }
 
 /* 敵HP情報エリア（左上） */
@@ -258,8 +247,6 @@
   justify-content: flex-start;
   padding: 20px;
   background-color: #ffffff;
-  border: 3px solid #000000;
-  margin: 10px;
 }
 
 /* メッセージエリア */
@@ -358,22 +345,22 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto;
     gap: 10px;
-    grid-template-areas: 
+    grid-template-areas:
       "enemy-hp"
       "enemy-character"
       "player-character"
       "player-hp";
   }
-  
+
   .character-box {
     width: 80px;
     height: 80px;
   }
-  
+
   .hp-bar {
     width: 80px;
   }
-  
+
   .message-area {
     position: relative;
     bottom: auto;
@@ -382,11 +369,11 @@
     width: 90%;
     margin: 20px auto;
   }
-  
+
   .command-buttons {
     flex-direction: column;
     gap: 10px;
     max-width: 100%;
     margin-left: 0;
   }
-} 
+}

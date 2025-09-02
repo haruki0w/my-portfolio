@@ -33,24 +33,22 @@ const MainVisual: React.FC<MainVisualProps> = ({
         {/* 敵キャラクター（右上） */}
         <div className="enemy-character-area">
           <div className="character-box enemy-character">
-            <div className="pixel-character enemy-sprite">
-              <div className="enemy-main"></div>
-              <div className="enemy-detail1"></div>
-              <div className="enemy-detail2"></div>
-              <div className="enemy-detail3"></div>
-            </div>
+            <img
+              src="src\assets\takeshi.jpg"
+              alt="Enemy Project"
+              className="character-photo"
+            />
           </div>
         </div>
 
         {/* プレイヤーキャラクター（左下） */}
         <div className="player-character-area">
           <div className="character-box player-character">
-            <div className="pixel-character player-sprite">
-              <div className="pixel-head"></div>
-              <div className="pixel-body"></div>
-              <div className="pixel-arms"></div>
-              <div className="pixel-legs"></div>
-            </div>
+            <img
+              src="src\assets\hero.jpg"
+              alt="Developer Profile"
+              className="character-photo"
+            />
           </div>
         </div>
 
