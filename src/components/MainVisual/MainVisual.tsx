@@ -22,12 +22,17 @@ const MainVisual: React.FC<MainVisualProps> = ({
         <div className="battle-background" />
 
         {/* 敵HP情報（左上） */}
-        <div className="enemy-hp-area"></div>
-          <div className="character-name">PROJECT L15</div>
-          <div className="hp-bar">
-            <div className="hp-fill enemy-hp" style={{ width: "60%" }} />
+        <div className="enemy-hp-area">
+          <div className="character-name">PROJECT L100</div>
+          <div className="hp-line-enemy">
+            <div className="hp-container" style={{ marginBottom: "10px" }}>
+              <span className="hp-label">HP:</span>
+              <div className="hp-bar">
+                <div className="hp-fill enemy-hp" style={{ width: "100%" }} />
+              </div>
+            </div>
+            {/* <div className="hp-text">60/100</div> */}
           </div>
-          <div className="hp-text">60/100</div>
         </div>
 
         {/* 敵キャラクター（右上） */}
@@ -54,11 +59,16 @@ const MainVisual: React.FC<MainVisualProps> = ({
 
         {/* プレイヤーHP情報（右下） */}
         <div className="player-hp-area">
-          <div className="character-name">DEVELOPER L25</div>
-          <div className="hp-bar">
-            <div className="hp-fill player-hp" style={{ width: "85%" }} />
+          <div className="character-name">DEVELOPER L33</div>
+          <div className="hp-line-player">
+            <div className="hp-container">
+              <span className="hp-label">HP:</span>
+              <div className="hp-bar">
+                <div className="hp-fill player-hp" style={{ width: "20%" }} />
+              </div>
+            </div>
+            <div className="hp-text">20 / 100</div>
           </div>
-          <div className="hp-text">85/100</div>
         </div>
 
         {/* 中央のメッセージエリア */}

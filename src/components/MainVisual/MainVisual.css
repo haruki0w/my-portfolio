@@ -70,7 +70,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: #e7f0c0;
 }
 
 /* プレイヤーHP情報エリア（右下） */
@@ -81,7 +82,8 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: 20px 40px 20px 80px;;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: #e7f0c0;
 }
 
 .character-box {
@@ -191,33 +193,94 @@
 .character-name {
   font-weight: bold;
   color: #000000;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  margin-left: 20px;
   font-size: 14px;
   text-shadow: none; /* ドット絵風のテキストシャドウ */
 }
 
+.hp-line-enemy {
+  border-left: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.hp-line-enemy::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  /* border-bottom: 6px solid transparent; */
+  border-left: 15px solid #000000;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.hp-line-player {
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.hp-line-player::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  /* border-bottom: 6px solid transparent; */
+  border-right: 15px solid #000000;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.hp-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin-top: 1px;
+}
+
+.hp-label {
+  font-weight: bold;
+  color: #000000;
+  font-size: 14px;
+  text-shadow: none;
+  min-width: 20px;
+}
+
 .hp-bar {
-  width: 120px;
+  width: 220px;
   height: 16px;
   background-color: #ffffff;
   border: 3px solid #000000;
-  margin-top: 5px;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
 .hp-fill {
   height: 100%;
   transition: none; /* ドット絵風に滑らかなアニメーションを無効 */
   image-rendering: pixelated;
+  border-radius: 10px;
 }
 
 .player-hp {
-  background-color: #ffcc00; /* ポケモン風の黄色 */
+  background-color: #c40b0b; /* ポケモン風の黄色 */
 }
 
 .enemy-hp {
-  background-color: #ffcc00; /* ポケモン風の黄色 */
+  background-color: #057e23; /* ポケモン風の黄色 */
 }
 
 .hp-text {
@@ -226,6 +289,8 @@
   margin-top: 2px;
   font-weight: bold;
   text-shadow: none;
+  text-align: center;
+  width: 100%;
 }
 
 /* 敵キャラクターエリア（右上） */
@@ -235,7 +300,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: #e7f0c0;
 }
 
 /* 敵HP情報エリア（左上） */
@@ -247,7 +313,8 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px 40px 20px 80px;
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
+  background-color: #e7f0c0;
 }
 
 /* メッセージエリア */
@@ -276,7 +343,7 @@
 
 /* 下部コマンドエリア */
 .command-area {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -284,6 +351,7 @@
   min-height: 200px;
   border-top: 4px solid #000000;
   image-rendering: pixelated;
+  background-color: #e7f0c0;
 }
 
 .command-buttons {
