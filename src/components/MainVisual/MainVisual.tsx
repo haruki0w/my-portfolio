@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MainVisual.css";
 
 interface MainVisualProps {
@@ -14,6 +14,20 @@ const MainVisual: React.FC<MainVisualProps> = ({
   onRelated,
   onSNS,
 }) => {
+  const [showSkills, setShowSkills] = useState(false);
+  const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+
+  const handleAttackClick = () => {
+    setShowSkills(!showSkills);
+    setSelectedSkill(null);
+  };
+
+  const handleSkillSelect = (skill: string) => {
+    setSelectedSkill(skill);
+    setShowSkills(false);
+    if (onAttack) onAttack();
+  };
+
   return (
     <div className="main-visual">
       {/* 上部バトルエリア */}
@@ -76,10 +90,57 @@ const MainVisual: React.FC<MainVisualProps> = ({
 
       {/* 下部コマンドエリア */}
       <div className="command-area">
-        <div className="command-area-left">{/* 左側のコンテンツ */}</div>
+        <div
+          className={`command-area-left ${
+            showSkills ? "with-right-border" : ""
+          }`}
+        >
+          {showSkills ? (
+            <div className="skills-menu">
+              {/* <h3 className="skills-title">技を選んでください</h3> */}
+              <div className="skills-list">
+                <button
+                  className="skill-btn"
+                  onClick={() => handleSkillSelect("JavaScript")}
+                >
+                  JavaScript
+                </button>
+                <button
+                  className="skill-btn"
+                  onClick={() => handleSkillSelect("TypeScript")}
+                >
+                  TypeScript
+                </button>
+                <button
+                  className="skill-btn"
+                  onClick={() => handleSkillSelect("React")}
+                >
+                  React
+                </button>
+                <button
+                  className="skill-btn"
+                  onClick={() => handleSkillSelect("CSS")}
+                >
+                  CSS
+                </button>
+              </div>
+            </div>
+          ) : selectedSkill ? (
+            <div className="skill-result">
+              <p className="skill-message">{selectedSkill}を使った！</p>
+            </div>
+          ) : (
+            <div className="empty-state"></div>
+          )}
+        </div>
         <div className="command-area-right">
           <div className="command-buttons">
-            <button className="command-btn attack-btn" onClick={onAttack}>
+            <button
+              className={`command-btn attack-btn ${
+                showSkills ? "selected" : ""
+              }`}
+              onClick={handleAttackClick}
+            >
               たたかう
             </button>
             <button className="command-btn bag-btn" onClick={onRelated}>
