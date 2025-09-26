@@ -76,19 +76,22 @@ const MainVisual: React.FC<MainVisualProps> = ({
 
       {/* 下部コマンドエリア */}
       <div className="command-area">
-        <div className="command-buttons">
-          <button className="command-btn attack-btn" onClick={onAttack}>
-            たたかう
-          </button>
-          <button className="command-btn bag-btn" onClick={onRelated}>
-            SNSリンク
-          </button>
-          <button className="command-btn pokemon-btn" onClick={onSNS}>
-            関連サイト
-          </button>
-          <button className="command-btn run-btn" onClick={onEscape}>
-            にげる
-          </button>
+        <div className="command-area-left">{/* 左側のコンテンツ */}</div>
+        <div className="command-area-right">
+          <div className="command-buttons">
+            <button className="command-btn attack-btn" onClick={onAttack}>
+              たたかう
+            </button>
+            <button className="command-btn bag-btn" onClick={onRelated}>
+              SNSリンク
+            </button>
+            <button className="command-btn pokemon-btn" onClick={onSNS}>
+              関連サイト
+            </button>
+            <button className="command-btn run-btn" onClick={onEscape}>
+              にげる
+            </button>
+          </div>
         </div>
       </div>
     </div>

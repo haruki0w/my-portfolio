@@ -13,7 +13,6 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  border-bottom: 4px solid #000000;
   background-color: #e7f0c0;
   grid-template-areas: 
     "enemy-hp enemy-character"
@@ -70,7 +69,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  /* background-color: #ffffff; */
   background-color: #e7f0c0;
 }
 
@@ -82,7 +80,6 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding: 20px 40px 20px 80px;;
-  /* background-color: #ffffff; */
   background-color: #e7f0c0;
 }
 
@@ -200,8 +197,8 @@
 }
 
 .hp-line-enemy {
-  border-left: 2px solid #000000;
-  border-bottom: 2px solid #000000;
+  border-left: 3px solid #000000;
+  border-bottom: 3px solid #000000;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -215,15 +212,14 @@
   width: 0;
   height: 0;
   border-top: 6px solid transparent;
-  /* border-bottom: 6px solid transparent; */
   border-left: 15px solid #000000;
   border-radius: 2px;
   z-index: 1;
 }
 
 .hp-line-player {
-  border-right: 2px solid #000000;
-  border-bottom: 2px solid #000000;
+  border-right: 3px solid #000000;
+  border-bottom: 3px solid #000000;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -237,7 +233,6 @@
   width: 0;
   height: 0;
   border-top: 6px solid transparent;
-  /* border-bottom: 6px solid transparent; */
   border-right: 15px solid #000000;
   border-radius: 2px;
   z-index: 1;
@@ -291,6 +286,7 @@
   text-shadow: none;
   text-align: center;
   width: 100%;
+  margin-bottom: 2px;
 }
 
 /* 敵キャラクターエリア（右上） */
@@ -300,7 +296,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* background-color: #ffffff; */
   background-color: #e7f0c0;
 }
 
@@ -309,11 +304,9 @@
   grid-area: enemy-hp;
   display: flex;
   flex-direction: column;
-  /* 右寄せ */
   align-items: flex-start;
   justify-content: flex-start;
   padding: 20px 40px 20px 80px;
-  /* background-color: #ffffff; */
   background-color: #e7f0c0;
 }
 
@@ -343,34 +336,54 @@
 
 /* 下部コマンドエリア */
 .command-area {
-  /* background-color: #ffffff; */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1rem;
   min-height: 200px;
-  border-top: 4px solid #000000;
   image-rendering: pixelated;
   background-color: #e7f0c0;
 }
 
-.command-buttons {
+.command-area-left {
+  flex: 0 0 300px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 6px double #000000;
+  border-top: 6px double #000000;
+  border-left: 6px double #000000;
+  border-radius: 10px 0 0 10px;
+  padding: 78px;
+  background-color: #e7f0c0;
+}
+
+.command-area-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px double #000000;
+  border-radius: 0;
+  padding: 20px;
+  margin: 10px;
+  background-color: #e7f0c0;
+  border-radius: 10px;
+}
+
+.command-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 8px;
   width: 100%;
-  max-width: 200px;
-  margin-left: auto;
+  max-width: 300px;
 }
 
 .command-btn {
-  padding: 16px 20px;
-  border: 3px solid #000000;
-  border-radius: 0;
-  background-color: #ffffff;
-  color: #000000;
+  padding: 16px 10px;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   box-shadow: none;
   transition: none;
@@ -378,34 +391,38 @@
   font-family: 'DotGothic16', 'Courier New', monospace;
   text-shadow: none;
   image-rendering: pixelated;
-  /* ポケモン風のシンプルなボタン */
-  border-style: solid;
 }
 
 .command-btn:hover {
-  background-color: #f0f0f0;
-  border-color: #000000;
+  background-color: #e7f0c0;
 }
 
 .command-btn:active {
   background-color: #e0e0e0;
-  color: #000000;
 }
 
 .attack-btn {
-  background-color: #ffffff;
+  background-color: #e7f0c0;
+  border: none;
+  text-align: left;
 }
 
 .bag-btn {
-  background-color: #ffffff;
+  background-color: #e7f0c0;
+  border: none;
+  text-align: left;
 }
 
 .pokemon-btn {
-  background-color: #ffffff;
+  background-color: #e7f0c0;
+  border: none;
+  text-align: left;
 }
 
 .run-btn {
-  background-color: #ffffff;
+  background-color: #e7f0c0;
+  border: none;
+  text-align: left;
 }
 
 /* レスポンシブ対応 */
