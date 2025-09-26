@@ -39,7 +39,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
         <div className="enemy-character-area">
           <div className="character-box enemy-character">
             <img
-              src="src\assets\takeshi.jpg"
+              src="src\assets\enemy.png "
               alt="Enemy Project"
               className="character-photo"
             />
@@ -50,7 +50,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
         <div className="player-character-area">
           <div className="character-box player-character">
             <img
-              src="src\assets\hero.jpg"
+              src="src\assets\player.png"
               alt="Developer Profile"
               className="character-photo"
             />

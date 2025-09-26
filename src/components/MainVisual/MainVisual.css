@@ -97,6 +97,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-color: #e7f0c0;
 }
 
 .enemy-character {
