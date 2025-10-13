@@ -16,6 +16,10 @@ const MainVisual: React.FC<MainVisualProps> = ({
 }) => {
   const [showSkills, setShowSkills] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
+  const [showSecondMessage, setShowSecondMessage] = useState(false);
+
+  // 使用者の名前
+  const userName = "ITエンジニア";
 
   const handleAttackClick = () => {
     setShowSkills(!showSkills);
@@ -25,11 +29,27 @@ const MainVisual: React.FC<MainVisualProps> = ({
   const handleSkillSelect = (skill: string) => {
     setSelectedSkill(skill);
     setShowSkills(false);
+    setShowSecondMessage(false);
+
     if (onAttack) onAttack();
   };
 
+  const handleOverlayClick = () => {
+    // メッセージが表示されている時の処理
+    if (selectedSkill) {
+      if (!showSecondMessage) {
+        // 最初のメッセージが表示中の場合、2番目のメッセージを表示
+        setShowSecondMessage(true);
+      } else {
+        // 2番目のメッセージが表示中の場合、メッセージを消す
+        setSelectedSkill(null);
+        setShowSecondMessage(false);
+      }
+    }
+  };
+
   return (
-    <div className="main-visual">
+    <div className="main-visual" onClick={handleOverlayClick}>
       {/* 上部バトルエリア */}
       <div className="battle-area">
         {/* バトルフィールド背景 */}
@@ -37,7 +57,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
 
         {/* 敵HP情報（左上） */}
         <div className="enemy-hp-area">
-          <div className="character-name">PROJECT L100</div>
+          <div className="character-name">PM L100</div>
           <div className="hp-line-enemy">
             <div className="hp-container" style={{ marginBottom: "10px" }}>
               <span className="hp-label">HP:</span>
@@ -73,7 +93,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
 
         {/* プレイヤーHP情報（右下） */}
         <div className="player-hp-area">
-          <div className="character-name">DEVELOPER L33</div>
+          <div className="character-name">ITエンジニア L33</div>
           <div className="hp-line-player">
             <div className="hp-container">
               <span className="hp-label">HP:</span>
@@ -90,6 +110,15 @@ const MainVisual: React.FC<MainVisualProps> = ({
 
       {/* 下部コマンドエリア */}
       <div className="command-area">
+        {selectedSkill && (
+          <div className="skill-message-overlay">
+            <p className="skill-message-text">
+              {showSecondMessage
+                ? "しかし何も起こらなかった。"
+                : `${userName}は${selectedSkill}を使った！`}
+            </p>
+          </div>
+        )}
         <div
           className={`command-area-left ${
             showSkills ? "with-right-border" : ""
@@ -101,9 +130,9 @@ const MainVisual: React.FC<MainVisualProps> = ({
               <div className="skills-list">
                 <button
                   className="skill-btn"
-                  onClick={() => handleSkillSelect("JavaScript")}
+                  onClick={() => handleSkillSelect("React")}
                 >
-                  JavaScript
+                  React
                 </button>
                 <button
                   className="skill-btn"
@@ -113,21 +142,17 @@ const MainVisual: React.FC<MainVisualProps> = ({
                 </button>
                 <button
                   className="skill-btn"
-                  onClick={() => handleSkillSelect("React")}
+                  onClick={() => handleSkillSelect("リリースする")}
                 >
-                  React
+                  リリースする
                 </button>
                 <button
                   className="skill-btn"
-                  onClick={() => handleSkillSelect("CSS")}
+                  onClick={() => handleSkillSelect("残業する")}
                 >
-                  CSS
+                  残業する
                 </button>
               </div>
-            </div>
-          ) : selectedSkill ? (
-            <div className="skill-result">
-              <p className="skill-message">{selectedSkill}を使った！</p>
             </div>
           ) : (
             <div className="empty-state"></div>
