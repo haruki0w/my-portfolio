@@ -278,22 +278,22 @@ const MainVisual: React.FC<MainVisualProps> = ({
               {showFinalSuccessMessage
                 ? "プロジェクト大成功！"
                 : showSuccessMessage
-                ? "PM：「なに...！全ての開発が終わっているだと...！」"
+                ? "PM「なに...！全ての開発が終わっているだと...！」"
                 : showGameOverMessage
                 ? "プロジェクト失敗。退場となりました。"
                 : showFourthMessage
                 ? "精神と共に体力が削られた"
                 : showThirdMessage
                 ? selectedSkill === "リリースする"
-                  ? "PM：勝手にリリースしないでください。"
+                  ? "PM「勝手にリリースしないでください。」"
                   : selectedSkill === "残業する"
-                  ? "PM：「勝手に残業しないでください。」"
-                  : "PM：「何をしているのですか？進捗が遅れています。」"
+                  ? "PM「勝手に残業しないでください。」"
+                  : "PM「何をしているのですか？進捗が遅れています。」"
                 : showSecondMessage
                 ? selectedSkill === "リリースする"
-                  ? "ITエンジニア：「これでバグ解消さ...」"
+                  ? "ITエンジニア「これでバグ解消さ...」"
                   : selectedSkill === "残業する"
-                  ? "ITエンジニア：「うおおおおお！！！タタタターーーーン！！！（Enter）」"
+                  ? "ITエンジニア「うおおおおお！！！タタタターーーーン！！！（Enter）」"
                   : "しかし何も起こらなかった。"
                 : `${userName}は${selectedSkill}を使った！`}
             </p>
@@ -496,7 +496,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
               <p className="escape-message-text">
                 {escapeClickCount === 1
                   ? "天の声：「このプロジェクトからにげるのか。もう一度よく考えろ」"
-                  : "社員：「新しいプロジェクトに参画してもらいますぅ～」"}
+                  : "社員：「新しいプロジェクトに参画してもらいます(^_-)-☆」"}
               </p>
               <button
                 className="escape-message-close"

@@ -89,7 +89,7 @@
 }
 
 .player-character {
-  background-color: #ffffff;
+  background-color: #e7f0c0;
 }
 
 /* キャラクター写真のスタイリング */
@@ -101,7 +101,7 @@
 }
 
 .enemy-character {
-  background-color: #ffffff;
+  background-color: #e7f0c0;
 }
 
 /* ドット絵風キャラクター */
@@ -346,14 +346,16 @@
   background-color: #e7f0c0;
   overflow: visible;
   position: relative;
+  flex-wrap: nowrap;
+  min-width: 600px;
 }
 
 /* 技使用メッセージオーバーレイ */
 .skill-message-overlay {
   position: absolute;
-  top: 20;
+  top: 7%;
   width: 96%;
-  height: 85%;
+  height: 86%;
   background-color: #e7f0c0;
   border-bottom: 6px double #000000;
   border-top: 6px double #000000;
@@ -386,7 +388,7 @@
   border-left: 6px double #000000;
   border-right: 6px double #000000;
   border-radius: 10px;
-  padding: 30px 20px 20px 80px;
+  padding: 30px 15px 20px 60px;
   background-color: #e7f0c0;
   position: relative;
   z-index: 5;
@@ -477,18 +479,21 @@
 }
 
 .command-area-right {
-  flex: 1;
+  flex: 1 1 auto;
+  height: 100%;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   border: 6px double #000000;
-  border-radius: 0;
+  border-radius: 10px;
   padding: 20px;
   margin: 0px 0px 0px -5px;
   background-color: #e7f0c0;
-  border-radius: 10px;
   z-index: 10;
   position: relative;
+  min-height: 120px;
+  min-width: 300px;
+  flex-shrink: 0;
 }
 
 .command-buttons {
@@ -845,79 +850,172 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* レスポンシブ対応 */
+/* レスポンシブ対応 - 768px以下でもデスクトップ版と同じレイアウトを維持 */
 @media (max-width: 768px) {
-  .battle-area {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    gap: 10px;
-    grid-template-areas:
-      "enemy-hp"
-      "enemy-character"
-      "player-character"
-      "player-hp";
+  /* main-visualを中央配置 */
+  .main-visual {
+    align-items: center;
+    justify-content: center;
   }
 
+  /* バトルエリアの横幅を375pxに固定し、要素を中央配置 */
+  .battle-area {
+    width: 375px;
+    max-width: 375px;
+    margin: 0 auto;
+    justify-items: center;
+    align-items: center;
+  }
+
+  /* SP表示での各エリアのサイズ調整 */
+  .enemy-hp-area,
+  .player-hp-area {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .enemy-character-area,
+  .player-character-area {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* キャラクター画像のサイズ調整 */
   .character-box {
     width: 80px;
     height: 80px;
   }
 
+  .character-photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* HPバーのサイズ調整 */
   .hp-bar {
     width: 80px;
+    height: 8px;
   }
 
-  .message-area {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
-    width: 90%;
-    margin: 20px auto;
+  .hp-container {
+    gap: 5px;
   }
 
-  .command-buttons {
-    flex-direction: column;
-    gap: 10px;
-    max-width: 100%;
-    margin-left: 0;
+  .hp-label {
+    font-size: 12px;
   }
 
-  .sns-links {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  .hp-text {
+    font-size: 12px;
   }
 
-  .sns-popup {
-    width: 95%;
-    margin: 10px;
+  .character-name {
+    font-size: 12px;
+    margin-bottom: 5px;
+    text-align: left;
+    align-self: flex-start;
   }
 
-  .sns-popup-header {
-    padding: 15px 20px;
+  /* メッセージエリアの設定も維持 */
+  /* .message-area の設定はデフォルトのままにして変更しない */
+
+  /* コマンドエリアのレスポンシブ調整 */
+  .command-area {
+    min-width: 375px;
+    max-width: 375px;
+    flex-wrap: nowrap;
+    padding: 0.5rem;
+    margin: 0 auto;
+    height: 115px;
   }
 
-  .sns-popup-content {
-    padding: 20px;
+  .command-area-left {
+    flex: 0 0 100px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    padding: 15px 5px 10px 20px;
+    font-size: 12px;
   }
 
-  .related-links {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  /* 技選択メニューが表示されていない時のみ高さを100%に */
+  .command-area-left:not(.with-right-border) {
+    height: 100%;
   }
 
+  .command-area-right {
+    flex: 1 1 auto;
+    height: 100%;
+    margin: 0px 0px 0px -3px;
+    padding: 8px;
+    min-height: 80px;
+    min-width: 200px;
+    flex-shrink: 1;
+  }
+
+  /* SP表示でのコマンドボタンのフォントサイズ調整 */
+  .command-btn {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  /* SP表示での技選択ボタンのフォントサイズ調整 */
+  .skill-btn {
+    font-size: 12px;
+    padding: 4px 6px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* SP表示での技選択メニューの調整 */
+  .skills-menu {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .skills-list {
+    width: 100%;
+    gap: 4px;
+  }
+
+  /* SP表示でのスキルメッセージテキストのサイズ調整 */
+  .skill-message-text {
+    font-size: 14px;
+  }
+
+  /* SP表示でのポップアップヘッダーのフォントサイズ調整 */
+  .sns-popup-header h2,
+  .related-popup-header h2 {
+    font-size: 18px;
+  }
+
+  /* コマンドボタンも2x2グリッドレイアウトを維持 */
+  /* .command-buttons の設定はデフォルトのままにして変更しない */
+
+  /* ポップアップのサイズのみ調整 */
+  .sns-popup,
   .related-popup {
     width: 95%;
     margin: 10px;
   }
 
+  .sns-popup-header,
   .related-popup-header {
     padding: 15px 20px;
   }
 
+  .sns-popup-content,
   .related-popup-content {
     padding: 20px;
   }
+
+  /* SNSと関連サイトのリンクも2x2グリッドを維持 */
+  /* .sns-links と .related-links の設定はデフォルトのままにして変更しない */
 
   .escape-message-popup {
     width: 95%;
