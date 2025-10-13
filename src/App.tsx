@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <main style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+      <main>
         <MainVisual
         // onAttack={handleAttack}
         // onEscape={handleEscape}
