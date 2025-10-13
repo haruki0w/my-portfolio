@@ -545,6 +545,306 @@
   text-align: left;
 }
 
+/* SNSポップアップ */
+.sns-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.sns-popup {
+  background-color: #e7f0c0;
+  border: 6px double #000000;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.sns-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 3px solid #000000;
+  background-color: #d4e19f;
+}
+
+.sns-popup-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: none;
+}
+
+.sns-close-btn {
+  background: none;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.sns-close-btn:hover {
+  background-color: #ff6666;
+  color: #ffffff;
+}
+
+.sns-popup-content {
+  padding: 30px 25px;
+}
+
+.sns-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.sns-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #000000;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sns-link:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sns-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.sns-name {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sns-link.twitter:hover {
+  background-color: #e1f5fe;
+}
+
+.sns-link.instagram:hover {
+  background-color: #fce4ec;
+}
+
+.sns-link.blog:hover {
+  background-color: #f3e5f5;
+}
+
+.sns-link.github:hover {
+  background-color: #f5f5f5;
+}
+
+/* 関連サイトポップアップ */
+.related-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.related-popup {
+  background-color: #e7f0c0;
+  border: 6px double #000000;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.related-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 3px solid #000000;
+  background-color: #d4e19f;
+}
+
+.related-popup-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: none;
+}
+
+.related-close-btn {
+  background: none;
+  border: 2px solid #000000;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.related-close-btn:hover {
+  background-color: #ff6666;
+  color: #ffffff;
+}
+
+.related-popup-content {
+  padding: 30px 25px;
+}
+
+.related-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.related-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-decoration: none;
+  color: #000000;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.related-link:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.related-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.related-name {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.related-link.qiita:hover {
+  background-color: #e8f5e8;
+}
+
+.related-link.zenn:hover {
+  background-color: #e3f2fd;
+}
+
+.related-link.note:hover {
+  background-color: #fff3e0;
+}
+
+.related-link.portfolio:hover {
+  background-color: #f3e5f5;
+}
+
+/* にげるメッセージポップアップ */
+.escape-message-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.escape-message-popup {
+  background-color: #e7f0c0;
+  border: 6px double #000000;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.escape-message-content {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.escape-message-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 30px 0;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.escape-message-close {
+  background-color: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+}
+
+.escape-message-close:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.escape-message-close:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
   .battle-area {
@@ -581,5 +881,60 @@
     gap: 10px;
     max-width: 100%;
     margin-left: 0;
+  }
+
+  .sns-links {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .sns-popup {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .sns-popup-header {
+    padding: 15px 20px;
+  }
+
+  .sns-popup-content {
+    padding: 20px;
+  }
+
+  .related-links {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .related-popup {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .related-popup-header {
+    padding: 15px 20px;
+  }
+
+  .related-popup-content {
+    padding: 20px;
+  }
+
+  .escape-message-popup {
+    width: 95%;
+    margin: 10px;
+  }
+
+  .escape-message-content {
+    padding: 30px 20px;
+  }
+
+  .escape-message-text {
+    font-size: 18px;
+    margin: 0 0 25px 0;
+  }
+
+  .escape-message-close {
+    padding: 10px 25px;
+    font-size: 16px;
   }
 }

@@ -22,10 +22,15 @@ const MainVisual: React.FC<MainVisualProps> = ({
   const [showGameOverMessage, setShowGameOverMessage] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFinalSuccessMessage, setShowFinalSuccessMessage] = useState(false);
+  const [showSNSPopup, setShowSNSPopup] = useState(false);
+  const [showRelatedPopup, setShowRelatedPopup] = useState(false);
+  const [showEscapeMessage, setShowEscapeMessage] = useState(false);
+  const [escapeClickCount, setEscapeClickCount] = useState(0);
   const [playerHP, setPlayerHP] = useState(100);
   const [usedSkills, setUsedSkills] = useState<string[]>([]);
 
   // 使用者の名前
+  // TODO: ユーザー名を設定可能にする（プロフィール設定から取得）
   const userName = "ITエンジニア";
 
   const handleAttackClick = () => {
@@ -48,6 +53,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
     setUsedSkills(newUsedSkills);
 
     // 成功パターンをチェック
+    // TODO: 成功パターンを設定ファイルで管理する
     const successPattern = ["React", "TypeScript", "残業する", "リリースする"];
     if (
       newUsedSkills.length === 4 &&
@@ -64,6 +70,32 @@ const MainVisual: React.FC<MainVisualProps> = ({
     }
 
     if (onAttack) onAttack();
+  };
+
+  const handleSNSClick = () => {
+    setShowSNSPopup(true);
+  };
+
+  const handleSNSPopupClose = () => {
+    setShowSNSPopup(false);
+  };
+
+  const handleRelatedClick = () => {
+    setShowRelatedPopup(true);
+  };
+
+  const handleRelatedPopupClose = () => {
+    setShowRelatedPopup(false);
+  };
+
+  const handleEscapeClick = () => {
+    const newCount = escapeClickCount + 1;
+    setEscapeClickCount(newCount);
+    setShowEscapeMessage(true);
+  };
+
+  const handleEscapeMessageClose = () => {
+    setShowEscapeMessage(false);
   };
 
   const handleOverlayClick = () => {
@@ -316,18 +348,166 @@ const MainVisual: React.FC<MainVisualProps> = ({
             >
               たたかう
             </button>
-            <button className="command-btn bag-btn" onClick={onRelated}>
+            <button className="command-btn bag-btn" onClick={handleSNSClick}>
               SNSリンク
             </button>
-            <button className="command-btn pokemon-btn" onClick={onSNS}>
+            <button
+              className="command-btn pokemon-btn"
+              onClick={handleRelatedClick}
+            >
               関連サイト
             </button>
-            <button className="command-btn run-btn" onClick={onEscape}>
+            <button className="command-btn run-btn" onClick={handleEscapeClick}>
               にげる
             </button>
           </div>
         </div>
       </div>
+
+      {/* SNSポップアップ */}
+      {showSNSPopup && (
+        <div className="sns-popup-overlay" onClick={handleSNSPopupClose}>
+          <div className="sns-popup" onClick={(e) => e.stopPropagation()}>
+            <div className="sns-popup-header">
+              <h2>SNSリンク</h2>
+              <button className="sns-close-btn" onClick={handleSNSPopupClose}>
+                ×
+              </button>
+            </div>
+            <div className="sns-popup-content">
+              <div className="sns-links">
+                {/* TODO: 実際のSNSアカウントURLに変更する */}
+                <a
+                  href="https://x.com/home?lang=ja"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sns-link twitter"
+                >
+                  <span className="sns-icon">🐦</span>
+                  <span className="sns-name">Twitter</span>
+                </a>
+
+                {/* TODO: 他のSNSリンクを有効化する場合はコメントアウトを解除
+                  <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sns-link instagram"
+                >
+                  <span className="sns-icon">📷</span>
+                  <span className="sns-name">Instagram</span>
+                </a> */}
+                {/* <a
+                  href="https://example-blog.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sns-link blog"
+                >
+                  <span className="sns-icon">📝</span>
+                  <span className="sns-name">ブログ</span>
+                </a> */}
+                {/* <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sns-link github"
+                >
+                  <span className="sns-icon">💻</span>
+                  <span className="sns-name">GitHub</span>
+                </a> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 関連サイトポップアップ */}
+      {showRelatedPopup && (
+        <div
+          className="related-popup-overlay"
+          onClick={handleRelatedPopupClose}
+        >
+          <div className="related-popup" onClick={(e) => e.stopPropagation()}>
+            <div className="related-popup-header">
+              <h2>関連サイト</h2>
+              <button
+                className="related-close-btn"
+                onClick={handleRelatedPopupClose}
+              >
+                ×
+              </button>
+            </div>
+            <div className="related-popup-content">
+              <div className="related-links">
+                {/* TODO: 関連サイトリンクを実際のURLに変更し、必要に応じて有効化する */}
+                {/* <a
+                  href="https://qiita.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="related-link qiita"
+                >
+                  <span className="related-icon">📚</span>
+                  <span className="related-name">Qiita</span>
+                </a> */}
+                {/* <a
+                  href="https://zenn.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="related-link zenn"
+                >
+                  <span className="related-icon">⚡</span>
+                  <span className="related-name">Zenn</span>
+                </a> */}
+                {/* <a
+                  href="https://note.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="related-link note"
+                >
+                  <span className="related-icon">📝</span>
+                  <span className="related-name">note</span>
+                </a> */}
+                {/* <a
+                  href="https://portfolio-site.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="related-link portfolio"
+                >
+                  <span className="related-icon">🌐</span>
+                  <span className="related-name">ポートフォリオ</span>
+                </a> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* にげるメッセージポップアップ */}
+      {showEscapeMessage && (
+        <div
+          className="escape-message-overlay"
+          onClick={handleEscapeMessageClose}
+        >
+          <div
+            className="escape-message-popup"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="escape-message-content">
+              <p className="escape-message-text">
+                {escapeClickCount === 1
+                  ? "天の声：「このプロジェクトからにげるのか。もう一度よく考えろ」"
+                  : "社員：「新しいプロジェクトに参画してもらいますぅ～」"}
+              </p>
+              <button
+                className="escape-message-close"
+                onClick={handleEscapeMessageClose}
+              >
+                OK
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
