@@ -21,13 +21,7 @@ const Header: React.FC = () => {
       <nav className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
         <ul className="nav-list">
           <li>
-            <a href="#home">ホーム</a>
-          </li>
-          <li>
             <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#projects">プロジェクト</a>
           </li>
           <li>
             <a href="#contact">お問い合わせ</a>

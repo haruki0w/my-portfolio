@@ -1,25 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 body {
-  font-family: 'DotGothic16', 'Courier New', monospace;
-  /* ピクセルフォントのアンチエイリアシングを無効にしてドット絵風に */
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: auto;
-  font-smooth: never;
-  image-rendering: pixelated;
+  font-family: 'Noto Sans JP', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   background-color: #e7f0c0; /* ゲームボーイ風の背景色 */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
 }
 
 /* レスポンシブ対応 */

@@ -4,7 +4,7 @@
   padding: 1.5rem 1rem 1rem 1rem;
   margin-top: 10px;
   border-top: 4px solid #000000;
-  font-family: 'DotGothic16', 'Courier New', monospace;
+  font-family: 'Noto Sans JP', sans-serif;
   image-rendering: pixelated;
   position: relative;
   bottom: 0;
@@ -23,6 +23,8 @@
   /* margin-bottom: 1rem; */
   color: #000000;
   text-shadow: none;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .footer-section {
@@ -32,7 +34,7 @@
 .footer-section p {
   margin: 0 0 8px 0;
   line-height: 1.6;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .footer-links {
@@ -44,7 +46,7 @@
 .footer-links a {
   color: #000000;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 16px;
   text-shadow: none;
   transition: none;
 }
@@ -85,10 +87,6 @@
 @media (max-width: 480px) {
   .footer {
     padding: 1rem 1rem 0.5rem 1rem;
-  }
-  
-  .footer-content {
-    /* gap: 1rem; */
   }
   
   .footer-bottom {

@@ -7,7 +7,6 @@ const Footer: React.FC = () => {
       <div className="footer-content">
         <div className="footer-section">
           <h3>Mogura Portfolio</h3>
-          <p>がんばります</p>
           <div className="footer-links">
             <a href="#about">About</a>
             <a href="#contact">お問い合わせ</a>

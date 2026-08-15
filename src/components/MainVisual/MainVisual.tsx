@@ -288,15 +288,18 @@ const MainVisual: React.FC<MainVisualProps> = ({
                   ? "PM「勝手にリリースしないでください。」"
                   : selectedSkill === "残業する"
                   ? "PM「勝手に残業しないでください。」"
-                  : "PM「何をしているのですか？進捗が遅れています。」"
+                  : "PM「何をしているのですか？\n進捗が遅れています。」"
                 : showSecondMessage
                 ? selectedSkill === "リリースする"
                   ? "ITエンジニア「これでバグ解消さ...」"
                   : selectedSkill === "残業する"
-                  ? "ITエンジニア「うおおおおお！！！タタタターーーーン！！！（Enter）」"
+                  ? "ITエンジニア「うおおおおお！！！\nタタタターーーーン！！！（Enter）」"
                   : "しかし何も起こらなかった。"
                 : `${userName}は${selectedSkill}を使った！`}
             </p>
+            <span className="click-indicator" aria-hidden="true">
+              ▶
+            </span>
           </div>
         )}
         <div

@@ -5,7 +5,7 @@
   box-shadow: none;
   position: relative;
   border-bottom: 4px solid #000000;
-  font-family: 'DotGothic16', 'Courier New', monospace;
+  font-family: 'Noto Sans JP', sans-serif;
   image-rendering: pixelated;
 }
 
@@ -30,19 +30,25 @@
   cursor: pointer;
   padding: 5px;
   z-index: 10;
+  width: 35px;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
 }
 
 .burger-line {
   width: 25px;
-  height: 4px;
+  height: 3px;
   background-color: #000000;
-  margin: 3px 0;
-  transition: none;
-  border: 1px solid #000000;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  border: none;
+  display: block;
+  position: relative;
 }
 
 .burger-line.open:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(45deg) translate(8px, 5px);
 }
 
 .burger-line.open:nth-child(2) {
@@ -50,7 +56,7 @@
 }
 
 .burger-line.open:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(-45deg) translate(5px, -2px);
 }
 
 .nav-menu {
