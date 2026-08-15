@@ -3,16 +3,16 @@ import "./MainVisual.css";
 
 interface MainVisualProps {
   onAttack?: () => void;
-  onEscape?: () => void;
-  onRelated?: () => void;
-  onSNS?: () => void;
+  // onEscape?: () => void;
+  // onRelated?: () => void;
+  // onSNS?: () => void;
 }
 
 const MainVisual: React.FC<MainVisualProps> = ({
   onAttack,
-  onEscape,
-  onRelated,
-  onSNS,
+  // onEscape,
+  // onRelated,
+  // onSNS,
 }) => {
   const [showSkills, setShowSkills] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState<string | null>(null);
