@@ -445,7 +445,7 @@ const MainVisual: React.FC<MainVisualProps> = ({
             <div className="related-popup-content">
               <div className="related-links">
                 <a
-                  href="https://my-portfolio.mogura.workers.dev"
+                  href="https://engineer-diagnose.mogura.workers.dev/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="related-link diagnosis"
