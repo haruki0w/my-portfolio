@@ -444,6 +444,19 @@ const MainVisual: React.FC<MainVisualProps> = ({
             </div>
             <div className="related-popup-content">
               <div className="related-links">
+                <a
+                  href="https://my-portfolio.mogura.workers.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="related-link diagnosis"
+                >
+                  <span className="related-icon">📋</span>
+                  <span className="related-name">
+                    エンジニア
+                    <br />
+                    職業性格診断
+                  </span>
+                </a>
                 {/* TODO: 関連サイトリンクを実際のURLに変更し、必要に応じて有効化する */}
                 {/* <a
                   href="https://qiita.com"

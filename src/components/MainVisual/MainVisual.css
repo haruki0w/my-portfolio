@@ -799,6 +799,10 @@
   text-align: center;
 }
 
+.related-link.diagnosis:hover {
+  background-color: #fff9c4;
+}
+
 .related-link.qiita:hover {
   background-color: #e8f5e8;
 }
