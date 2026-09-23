@@ -402,15 +402,15 @@ const MainVisual: React.FC<MainVisualProps> = ({
                   <span className="sns-icon">📷</span>
                   <span className="sns-name">Instagram</span>
                 </a> */}
-                {/* <a
-                  href="https://example-blog.com"
+                <a
+                  href="https://note.com/great365"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="sns-link blog"
                 >
                   <span className="sns-icon">📝</span>
-                  <span className="sns-name">ブログ</span>
-                </a> */}
+                  <span className="sns-name">note</span>
+                </a>
                 {/* <a
                   href="https://github.com"
                   target="_blank"
